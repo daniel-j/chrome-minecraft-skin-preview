@@ -1,0 +1,31 @@
+{
+  "name": "Minecraft Skin Preview",
+  "version": "1.2.5",
+  "manifest_version": 2,
+  "icons": {
+  	"256": "icon256.png",
+    "128": "icon128.png",
+    "96": "icon96.png",
+    "48": "icon48.png",
+    "16": "icon16.png"
+  },
+  "description": "Preview your current skin on the Minecraft profile page",
+  "permissions": [
+	"*://s3.amazonaws.com/Minecraft*",
+    "http://minecraft.net/*",
+    "unlimitedStorage"
+  ],
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "content_scripts": [{
+    "matches": ["https://minecraft.net/profile", "http://minecraft.net/profile"],
+    "js": ["Three.js", "md5.js", "skin.js"],
+    "css": ["style.css"]
+  }],
+  "web_accessible_resources": [
+    "Minecraft.ttf",
+    "x.gif",
+    "select_arrow.gif"
+  ]
+}
